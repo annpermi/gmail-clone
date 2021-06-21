@@ -25,7 +25,7 @@ export const mailSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = mailSlice.actions;
 export const selectMail = (state) => state.mail.value;
 
 export default mailSlice.reducer;
