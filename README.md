@@ -6,7 +6,7 @@
 
 > React JS,
 
-> React Router,
+> React Router, React Hook Forms
 
 > Redux,
 
