@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Checkbox, IconButton } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import RedoIcon from '@material-ui/icons/Redo';
@@ -13,8 +13,35 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import Section from './Section';
 import EmailRow from './EmailRow';
 import './EmailList.css'
+import { db } from './firebase';
 
 function EmailList() {
+    //pease of state
+    const [emails, setEmails] = useState([]);
+    //run this pease of code when component it runs once 
+    useEffect(() => {
+        //targetting the collection from database
+                                /* VAxfNJugURcPnqLn6k6b
+                                message
+                                "This is a test message!"
+                                subject
+                                "Test message"
+                                timestamp
+                                June 21, 2021 at 4:59:59 PM UTC-4
+                                to
+                                "annpermi@gmail.com" */
+    db.collection('emails')
+    .orderBy('timestamp', 'desc')
+    .onSnapshot((snapshot) => 
+    setEmails(
+        snapshot.docs.map((doc) => 
+                        ({
+                            id: doc.id,
+                            data: doc.data()
+                        }))
+        )
+    );
+    }, [])
     return (
         <div className='emailList'>
             <div className="emailList__settings">
@@ -53,6 +80,16 @@ function EmailList() {
             </div>
 
             <div className="emailList__list">
+                {emails.map(({id, data: {to, subject, message, timestamp}})=>(
+                    <EmailRow
+                    id={id}
+                    key={id}
+                    title={to}
+                    subject={subject}
+                    description={message}
+                    time={new Date(timestamp?.seconds * 1000).toUTCString()}
+                    />
+                ))}
                 <EmailRow 
                 title='Gmail'
                 subject='Hey check this out'

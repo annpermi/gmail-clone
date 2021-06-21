@@ -58,6 +58,6 @@
 .sendMail__error {
   background-color: white;
   color: red;
-  text-align: left;
-  padding: 2px;
+  text-align: right;
+  padding: 3px;
 }

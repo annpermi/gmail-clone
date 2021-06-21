@@ -4,7 +4,9 @@ import Button from '@material-ui/core/Button';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { closeSendMessage } from './features/mailSlice';
-import './SendMail.css'
+import { db } from './firebase';
+import firebase from 'firebase';
+import './SendMail.css';
 
 function SendMail() {
     const {
@@ -13,7 +15,20 @@ function SendMail() {
         watch,
         formState: { errors }} = useForm();
     const dispatch = useDispatch();
-    const onSubmit = (formData) => console.log(formData);
+    const onSubmit = (formData) => {
+        console.log(formData)
+        //import data from local firebase file
+        //every time we submit, will push data to firebase
+        db.collection('emails').add(
+            {
+                to: formData.to,
+                subject: formData.subject,
+                message: formData.message,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }
+        )
+        dispatch(closeSendMessage())
+    };
 
     return (
         <div className='sendMail'>
@@ -26,7 +41,7 @@ function SendMail() {
             {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/* register your input into the hook by invoking the "register" function */}
-                <input placeholder='To' type="text" {...register('to', { required: true })}/>
+                <input type='email' placeholder='To'{...register('to', { required: true })}/>
                 {/* errors will return when field validation fails  */}
                 {errors.to && <p className='sendMail__error'>To is Required!</p>}
 
