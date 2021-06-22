@@ -7,8 +7,8 @@ import './Login.css';
 
 function Login() {
     const dispatch = useDispatch();
-    const signIn = (e) => {
-        e.preventDefault();
+    const signIn = () => {
+        // e.preventDefault();
         // Google authentification 
         auth
         .signInWithPopup(provider)
@@ -21,7 +21,7 @@ function Login() {
                 })
             );
         })
-        // .catch(error=>alert("Error message"))
+        .catch(error=>alert("Error message"))
     };
 
     return (
