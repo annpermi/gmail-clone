@@ -8,6 +8,7 @@ import './Login.css';
 function Login() {
     const dispatch = useDispatch();
     const signIn = () => {
+        event.preventDefault();
         // Google authentification 
         auth
         .signInWithPopup(provider)
