@@ -90,7 +90,7 @@ function EmailList() {
                     time={new Date(timestamp?.seconds * 1000).toUTCString()}
                     />
                 ))}
-                <EmailRow 
+                {/* <EmailRow 
                 title='Gmail'
                 subject='Hey check this out'
                 description='This is a gmail clone'
@@ -101,91 +101,7 @@ function EmailList() {
                 subject='How are you'
                 description='Like please'
                 time='10am'
-                />
-                <EmailRow 
-                title='Gmail'
-                subject='Hey check this out'
-                description='This is a gmail clone'
-                time='10pm'
-                />
-                <EmailRow 
-                title='Facebook'
-                subject='How are you'
-                description='Like please'
-                time='10am'
-                />
-                <EmailRow 
-                title='Gmail'
-                subject='Hey check this out'
-                description='This is a gmail clone'
-                time='10pm'
-                />
-                <EmailRow 
-                title='Facebook'
-                subject='How are you'
-                description='Like please'
-                time='10am'
-                />
-                <EmailRow 
-                title='Gmail'
-                subject='Hey check this out'
-                description='This is a gmail clone'
-                time='10pm'
-                />
-                <EmailRow 
-                title='Facebook'
-                subject='How are you'
-                description='Like please'
-                time='10am'
-                />
-                <EmailRow 
-                title='Gmail'
-                subject='Hey check this out'
-                description='This is a gmail clone'
-                time='10pm'
-                />
-                <EmailRow 
-                title='Facebook'
-                subject='How are you'
-                description='Like please'
-                time='10am'
-                />
-                <EmailRow 
-                title='Gmail'
-                subject='Hey check this out'
-                description='This is a gmail clone'
-                time='10pm'
-                />
-                <EmailRow 
-                title='Facebook'
-                subject='How are you'
-                description='Like please'
-                time='10am'
-                />
-                <EmailRow 
-                title='Gmail'
-                subject='Hey check this out'
-                description='This is a gmail clone'
-                time='10pm'
-                />
-                <EmailRow 
-                title='Facebook'
-                subject='How are you'
-                description='Like please'
-                time='10am'
-                />
-                <EmailRow 
-                title='Gmail'
-                subject='Hey check this out'
-                description='This is a gmail clone'
-                time='10pm'
-                />
-                <EmailRow 
-                title='Facebook'
-                subject='How are you'
-                description='Like please'
-                time='10am'
-                />
+                /> */}
             </div>
         </div>
     )

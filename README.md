@@ -10,6 +10,8 @@
 
 > Redux,
 
-> HTML,
+> HTML, CSS
 
-> CSS
+> Material-UI
+
+> Database Authentication

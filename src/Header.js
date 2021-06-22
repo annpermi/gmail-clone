@@ -43,7 +43,9 @@ function Header() {
                 <IconButton>
                     <NotificationsIcon />
                 </IconButton>
-                <Avatar src={user?.photoUrl} onClick={signOut}/>
+                <IconButton>
+                    <Avatar src={user?.photoUrl} onClick={signOut}/>
+                </IconButton>
             </div>
         </div>
     )
