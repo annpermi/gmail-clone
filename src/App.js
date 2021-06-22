@@ -34,12 +34,12 @@ function App() {
         }))
       }
     })
-  }, [])
+  }, []);
 
   return (
     <Router>
 {/* If no user -> login or -> render whole page */}
-      {user ? (
+      {!user ? (
       <Login />
       ): (
       <div className="app">

@@ -12,7 +12,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import Section from './Section';
 import EmailRow from './EmailRow';
-import './EmailList.css'
+import './EmailList.css';
 import { db } from './firebase';
 
 function EmailList() {
@@ -32,16 +32,15 @@ function EmailList() {
                                 "annpermi@gmail.com" */
     db.collection('emails')
     .orderBy('timestamp', 'desc')
-    .onSnapshot((snapshot) => 
-    setEmails(
+    .onSnapshot((snapshot) => setEmails (
         snapshot.docs.map((doc) => 
-                        ({
-                            id: doc.id,
-                            data: doc.data()
-                        }))
+            ({
+                id: doc.id,
+                data: doc.data()
+            }))
         )
-    );
-    }, [])
+    )
+    }, []);
     return (
         <div className='emailList'>
             <div className="emailList__settings">

@@ -6,7 +6,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { Avatar, IconButton } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import './Header.css'
+import './Header.css';
 import { logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
 
@@ -22,7 +22,7 @@ function Header() {
             //logout from google
             dispatch(logout())
         })
-    }
+    };
     return (
         <div className='header'>
             <div className="header__left">

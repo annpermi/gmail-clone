@@ -16,7 +16,6 @@ function SendMail() {
         formState: { errors }} = useForm();
     const dispatch = useDispatch();
     const onSubmit = (formData) => {
-        console.log(formData)
         //import data from local firebase file
         //every time we submit, will push data to firebase
         db.collection('emails').add(

@@ -6,22 +6,22 @@ import { useDispatch } from 'react-redux';
 import './Login.css';
 
 function Login() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const signIn = () => {
         // Google authentification 
         auth
         .signInWithPopup(provider)
         .then(({user}) => {
             dispatch(
-                login({
+                login ({
                 displayName: user.displayName,
                 email: user.email,
-                photoUrl: user.photoURL
+                photoUrl: user.photoURL,
                 })
             );
         })
         .catch(error=>alert("Error message"))
-    }
+    };
 
     return (
         <div className='login'>
